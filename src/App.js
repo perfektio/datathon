@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Chart from './components/Chart';
 import Table from './components/Table';
+
 import innovationProcurements from './all.json';
 
 import './bulma.min.css';
@@ -42,25 +44,21 @@ class App extends Component {
             <div>
                 <div className="columns">
                     <div className="column is-one-fifth">
-
-                        <div className="App">
-                            <h1 className="App-title">
-                                Innovation procurements
-                <small>in EU</small>
-                            </h1>
-                        </div>
-
+                      <div className="App">
+                          <h1 className="App-title">
+                              Innovation procurements
+                              <small>in EU</small>
+                          </h1>
+                      </div>
                     </div>
                     <div className="column">
 
                         here is map
 
           </div>
-                    <div className="column">
-
-                        here is graph
-
-          </div>
+                  <div className="column">
+                    <Chart data={filteredProcurements} />
+                  </div>
                 </div>
                 <div className="columns">
                     <ul>
@@ -71,9 +69,7 @@ class App extends Component {
                 </div>
                 <div className="columns">
                     <div className="column">
-                        <Table
-                            data={filteredProcurements}
-                        />
+                        <Table data={filteredProcurements} />
                     </div>
                 </div>
             </div>
