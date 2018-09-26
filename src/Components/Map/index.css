@@ -1,0 +1,6 @@
+.i-map {
+  height: 100%;
+  max-height: 50vh;
+  overflow: hidden;
+  display: flex;
+  width: 100%; }

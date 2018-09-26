@@ -26,8 +26,8 @@ class Table extends Component {
         Header: 'Awarded',
         accessor: 'tender_isAwarded'
       },
-      
-      
+
+
     ];
 
     return (
@@ -35,6 +35,7 @@ class Table extends Component {
         filterable
         data={data}
         columns={columns}
+        className="i-bordered"
       />
     );
   }
