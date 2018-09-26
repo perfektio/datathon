@@ -1,12 +1,43 @@
 import React, { Component } from 'react';
+import Table from './components/Table';
+import innovationProcurements from './all.json';
 
 import './bulma.min.css';
 import './App.css';
 
-import innovationProcurements from './all.json';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      filteredProcurements: [],
+      procurements: [],
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      procurements: innovationProcurements,
+    }, () => {
+      this.filter();
+    })
+  }
+
+  // TODO
+  filter() {
+    const { procurements } = this.state;
+
+    this.setState({
+      filteredProcurements: procurements,
+    })
+  }
+
   render() {
+    const { filteredProcurements } = this.state;
+
+    if (filteredProcurements.length === 0) return (<h1>Loading</h1>)
+
     return (
       <div>
         <div className="columns">
@@ -34,17 +65,9 @@ class App extends Component {
 
         <div className="columns">
           <div className="column">
-            this is table
-
-            { innovationProcurements.map((data, key) => {
-              return(
-                <div key={key}>
-                  <b>{ data.tender_title }</b>
-                  <br />{ data.buyer_name }
-                  <br />
-                </div>
-              )
-            }) }
+            <Table
+              data={filteredProcurements}
+            />
           </div>
         </div>
       </div>
