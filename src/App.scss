@@ -1,0 +1,56 @@
+
+$pleasent-background: #f5f6fa;
+$pleasent-border: #e5e9f2;
+
+body {
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  /*
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  */
+
+  background-color: $pleasent-background;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.3;
+}
+
+.App-title {
+  font-size: 36px;
+}
+
+.App-title small {
+  font-size: 80%;
+  margin-left: 10px;
+  opacity: 0.4;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.i-bordered {
+  background-color: white;
+  border: 1px solid $pleasent-border;
+  border-radius: 5px;
+}
