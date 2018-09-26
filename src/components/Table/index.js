@@ -14,10 +14,25 @@ class Table extends Component {
         Header: 'Title',
         accessor: 'tender_title'
       },
+      {
+        Header: 'Country',
+        accessor: 'tender_country'
+      },
+      {
+        Header: 'Year',
+        accessor: 'tender_year'
+      },
+      {
+        Header: 'Awarded',
+        accessor: 'tender_isAwarded'
+      },
+      
+      
     ];
 
     return (
       <ReactTable
+        filterable
         data={data}
         columns={columns}
       />
