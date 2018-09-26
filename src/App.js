@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Chart from './components/Chart';
 import Table from './components/Table';
-<<<<<<< HEAD
 
-=======
 import Map from './components/Map'
->>>>>>> 03cca9a000e8fbd8d492b490990dcd2d2a472d24
 import innovationProcurements from './all.json';
 
 import './bulma.min.css';
