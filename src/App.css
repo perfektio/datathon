@@ -1,4 +1,12 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
 body {
+  height: 100%;
+  margin: 0;
+  padding: 10px 0 0;
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -40,3 +48,28 @@ h1, h2, h3, h4, h5 {
   background-color: white;
   border: 1px solid #e5e9f2;
   border-radius: 5px; }
+
+.search-field {
+  background-color: white;
+  border: 1px solid #e5e9f2;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 15px;
+  margin: 10px 0;
+  padding: 14px 20px;
+  transition: all .15s ease-in-out;
+  width: 100%; }
+  .search-field:focus, .search-field:hover {
+    background: #fafbfd;
+    transition: all .15s ease-in-out; }
+  .search-field::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ccc;
+    opacity: 1;
+    /* Firefox */ }
+  .search-field:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ccc; }
+  .search-field::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #ccc; }

@@ -9,37 +9,92 @@ import './bulma.min.css';
 import './App.css';
 
 
+const fixedHash = {};
+innovationProcurements.forEach((pro) => {
+  const bidderKeys = Object.keys(pro).filter(key => (key.includes("bid_") || key.includes("bidder")))
+  const bidder = {};
+  bidderKeys.forEach(key => bidder[key] = pro[key]);
+
+  const tenderId = pro.tender_id;
+  if (!fixedHash[tenderId]) {
+    const tenderKeys = Object.keys(pro).filter(key => !(key.includes("bid_") || key.includes("bidder")))
+    const tender = { bidders: [] };
+    tenderKeys.forEach(key => tender[key] = pro[key]);
+
+    fixedHash[tenderId] = tender;
+  }
+
+
+  // Some bidder data is empty so we dont show them as bidders
+  const uniq = Object.values(bidder).filter((v, i, a) => a.indexOf(v) === i);
+
+  if ( !(uniq.length === 1 && uniq[0] == null) ) {
+    fixedHash[tenderId]['bidders'].push(bidder)
+  }
+})
+
+const fixedData = Object.keys(fixedHash).map(key => fixedHash[key]);
+
+console.log(fixedData)
+
+
 class App extends Component {
     constructor(props) {
-        super(props);
+      super(props);
 
-        this.state = {
-            filteredProcurements: [],
-            procurements: [],
-        };
+      this.state = {
+        filteredProcurements: [],
+        search: '',
+      };
+
+      this.handleChange = this.handleChange.bind(this);
+      this.searchTender = this.searchTender.bind(this);
     }
 
     componentDidMount() {
-        this.setState({
-            procurements: innovationProcurements,
-        }, () => {
-            this.filter();
-        })
+      this.filter();
     }
 
-    // TODO
-    filter() {
-        const { procurements } = this.state;
+    searchTender(procurement, key, search) {
+      if (!procurement[key]) return false;
 
-        this.setState({
-            filteredProcurements: procurements,
+      return procurement[key].toLowerCase().includes(search);
+    }
+
+    filter() {
+      const { search } = this.state;
+      const { searchTender } = this;
+      let filtered;
+
+      if (search != '') {
+        filtered = fixedData.filter(pro => {
+          if (searchTender(pro, 'tender_title', search)) return true;
+          if (searchTender(pro, 'tender_year', search)) return true;
+          if (searchTender(pro, 'lot_title', search)) return true;
+          if (searchTender(pro, 'buyer_name', search)) return true;
+          if (searchTender(pro, 'buyer_city', search)) return true;
+          if (searchTender(pro, 'buyer_country', search)) return true;
+
+          return false;
         })
+      } else {
+        filtered = fixedData.filter(pro => {
+          return true;
+        });
+      }
+
+      this.setState({
+        filteredProcurements: filtered,
+      })
+    }
+
+    handleChange(event) {
+      this.setState({ search: event.target.value.toLowerCase() },
+      () => { this.filter() });
     }
 
     render() {
-        const { filteredProcurements } = this.state;
-
-        if (filteredProcurements.length === 0) return (<h1>Loading</h1>)
+        const { filteredProcurements, search } = this.state;
 
         return (
             <div className="i-app container is-fluid">
@@ -47,7 +102,7 @@ class App extends Component {
                     <div className="column is-one-fifth i-bordered ">
                         <h1 className="App-title">
                             Innovation procurements
-                                <small>in EU</small>
+                            <small>in EU</small>
                         </h1>
                     </div>
                     <div className="column i-bordered ">
@@ -58,11 +113,13 @@ class App extends Component {
                     </div>
                 </div>
                 <div className="columns">
-                    <ul>
-                        {/* {Object.keys(filteredProcurements[0]).map((item) =>
-                            <li>item</li>
-                        )} */}
-                    </ul>
+                  <input
+                    type="text"
+                    className="search-field"
+                    onChange={this.handleChange}
+                    value={search}
+                    placeholder={"Type to search procurements..."}
+                  />
                 </div>
                 <div className="columns">
                     <div className="column i-bordered ">

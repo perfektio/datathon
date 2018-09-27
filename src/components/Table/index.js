@@ -32,7 +32,6 @@ class Table extends Component {
 
     return (
       <ReactTable
-        filterable
         data={data}
         columns={columns}
         className="i-bordered"
