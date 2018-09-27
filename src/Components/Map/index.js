@@ -22,16 +22,20 @@ class Map extends Component {
   render() {
     const { data } = this.props;
 
-    const accumulatedTotals = data.reduce(
+    const accumulatedTotals = Object.entries(data.reduce(
       (totals, tender) => ({ ...totals, [tender.tender_country]: (totals[tender.tender_country] || 0) + 1 }), {}
-    )
+    )).sort((a, b) => { return b[1] - a[1] })
 
     return (
       <div className="i-map">
-        <h2>Innovation procurements by countries</h2>
-        <ul>
-          {Object.entries(accumulatedTotals).map((item, key) => <li key={key}>{item}</li>)}
-        </ul>
+        <div className="i-map--list-country-container">
+          {accumulatedTotals.map((item, key) => (
+            <div key={key} className="i-map--list-country">
+              <span>{item[0]}</span>
+              {item[1]}
+            </div>
+          ))}
+        </div>
         <ComposableMap>
           <ZoomableGroup>
             <Geographies geography={geography}>

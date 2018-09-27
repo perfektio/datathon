@@ -4,9 +4,10 @@ html {
   padding: 0; }
 
 body {
+  box-sizing: border-box;
   height: 100%;
   margin: 0;
-  padding: 10px 0 0;
+  padding: 30px 20px;
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -25,14 +26,13 @@ body {
   background-color: #f5f6fa; }
 
 h1, h2, h3, h4, h5 {
-  line-height: 1.3; }
+  line-height: 1.1; }
 
 .App-title {
   font-size: 36px; }
 
 .App-title small {
   font-size: 80%;
-  margin-left: 10px;
   opacity: 0.4; }
 
 .App-intro {
@@ -44,19 +44,29 @@ h1, h2, h3, h4, h5 {
   to {
     transform: rotate(360deg); } }
 
+.column.i-bordered + .column.i-bordered.is-two-fifths {
+  margin-left: 1%;
+  width: 39%; }
+
 .i-bordered {
   background-color: white;
   border: 1px solid #e5e9f2;
   border-radius: 5px; }
+  .i-bordered > h2 {
+    border-bottom: 1px solid #e5e9f2;
+    font-size: 16px;
+    margin: -0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem; }
 
 .search-field {
   background-color: white;
   border: 1px solid #e5e9f2;
   border-radius: 5px;
-  box-sizing: border-box;
+  box-sizing: content-box;
   font-size: 15px;
-  margin: 10px 0;
-  padding: 14px 20px;
+  margin: 10px -0.75rem;
+  padding: 14px 0.75rem;
   transition: all .15s ease-in-out;
   width: 100%; }
   .search-field:focus, .search-field:hover {

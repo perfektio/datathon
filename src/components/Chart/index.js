@@ -5,6 +5,7 @@ import {
   Bar,
   XAxis,
   YAxis,
+  ResponsiveContainer,
 } from 'recharts';
 
 class Chart extends Component {
@@ -42,11 +43,13 @@ class Chart extends Component {
     });
 
     return (
-      <BarChart width={400} height={300} data={chartData}>
-        <Bar dataKey='count' fill='#8884d8' />
-        <XAxis dataKey='name' />
-        <YAxis />
-      </BarChart>
+      <ResponsiveContainer width='100%' height={300}>
+        <BarChart width={300} height={300} data={chartData}>
+          <Bar dataKey='count' fill='#8884d8' />
+          <XAxis dataKey='name' />
+          <YAxis />
+        </BarChart>
+      </ResponsiveContainer>
     );
   }
 }

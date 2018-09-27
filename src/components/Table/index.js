@@ -31,11 +31,13 @@ class Table extends Component {
     ];
 
     return (
-      <ReactTable
-        data={data}
-        columns={columns}
-        className="i-bordered"
-      />
+      <div>
+        <ReactTable
+          data={data}
+          columns={columns}
+          className="i-bordered"
+        />
+      </div>
     );
   }
 }
