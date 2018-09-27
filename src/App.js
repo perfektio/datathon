@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Chart from './components/Chart';
 import Table from './components/Table';
+
 import Map from './components/Map'
 import innovationProcurements from './all.json';
 
@@ -52,7 +54,7 @@ class App extends Component {
                         <Map data={filteredProcurements} />
                     </div>
                     <div className="column i-bordered ">
-                        here is graph
+                      <Chart data={filteredProcurements} />
                     </div>
                 </div>
                 <div className="columns">
