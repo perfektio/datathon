@@ -100,10 +100,10 @@ class App extends Component {
             <div className="i-app container is-fluid">
                 <div className="columns">
                     <div className="column is-one-fifth i-bordered ">
-                        <h1 className="App-title">
-                            Innovation procurements
-                            <small>in EU</small>
-                        </h1>
+                        <h1 className="App-title"> Innovation procurements <small>in EU</small></h1>
+                        <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
+                        </p>
+                        <p>This site was built by Perfektio for EU Datathon challenge.</p>
                     </div>
                     <div className="column i-bordered ">
                         <Map data={filteredProcurements} />
