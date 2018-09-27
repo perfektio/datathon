@@ -38,15 +38,9 @@ h1, h2, h3, h4, h5 {
 .App-intro {
   font-size: large; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
-
-.column.i-bordered + .column.i-bordered.is-two-fifths {
-  margin-left: 1%;
-  width: 39%; }
+.i-app {
+  margin: 0 auto;
+  max-width: 2000px; }
 
 .i-bordered {
   background-color: white;
@@ -65,7 +59,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 5px;
   box-sizing: content-box;
   font-size: 15px;
-  margin: 10px -0.75rem;
+  margin: 0 -0.75rem;
   padding: 14px 0.75rem;
   transition: all .15s ease-in-out;
   width: 100%; }

@@ -54,16 +54,18 @@ h1, h2, h3, h4, h5 {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+.i-app {
+  margin: 0 auto;
+  max-width: 2000px;
 }
 
 // dirty hack :-)
+// doesnt work on mobile :-(
 .column.i-bordered {
   + .column.i-bordered.is-two-fifths {
-    margin-left: 1%;
-    width: 39%;
+    // margin-left: 1%;
+    // width: 39%;
   }
 }
 .i-bordered {
@@ -86,7 +88,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 5px;
   box-sizing: content-box;
   font-size: 15px;
-  margin: 10px (-1 * $column-padding);
+  margin: 0 (-1 * $column-padding);
   padding: 14px $column-padding;
   transition: all .15s ease-in-out;
   width: 100%;

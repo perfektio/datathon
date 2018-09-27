@@ -4,6 +4,15 @@
   svg {
     max-width: 100%;
     width: auto;
+
+    &,
+    * {
+      outline: none;
+    }
+  }
+
+  .rsm-geographies {
+    transform: translate(-170%, -30%) scale(4);
   }
 }
 

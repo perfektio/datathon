@@ -45,7 +45,7 @@ class Chart extends Component {
     return (
       <ResponsiveContainer width='100%' height={300}>
         <BarChart width={300} height={300} data={chartData}>
-          <Bar dataKey='count' fill='#8884d8' />
+          <Bar dataKey='count' fill='#50E3C2' />
           <XAxis dataKey='name' />
           <YAxis />
         </BarChart>

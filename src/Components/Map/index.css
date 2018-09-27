@@ -1,6 +1,12 @@
 .i-map svg {
   max-width: 100%;
   width: auto; }
+  .i-map svg,
+  .i-map svg * {
+    outline: none; }
+
+.i-map .rsm-geographies {
+  transform: translate(-170%, -30%) scale(4); }
 
 .i-map--list-country-container {
   min-height: 40px; }

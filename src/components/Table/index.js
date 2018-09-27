@@ -15,19 +15,19 @@ class Table extends Component {
         accessor: 'tender_title'
       },
       {
+        Header: 'Buyer',
+        accessor: 'buyer_name'
+      },
+      {
         Header: 'Country',
-        accessor: 'tender_country'
+        accessor: 'tender_country',
+        width: 80
       },
       {
         Header: 'Year',
-        accessor: 'tender_year'
+        accessor: 'tender_year',
+        width: 80
       },
-      {
-        Header: 'Awarded',
-        accessor: 'tender_isAwarded'
-      },
-
-
     ];
 
     return (
