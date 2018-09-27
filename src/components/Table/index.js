@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-
+import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 
 import 'react-table/react-table.css'
 
 class Table extends Component {
-
   render() {
     const { data } = this.props;
 
     const columns = [
       {
         Header: 'Title',
-        accessor: 'tender_title'
+        accessor: 'tender_title',
+        Cell: cell => {
+          const title = cell.row.tender_title;
+          const id = cell.row._original.tender_id;
+
+          return (
+            <Link to={`/procurement/${id}`}>{ title }</Link>
+          );
+        }
       },
       {
         Header: 'Buyer',

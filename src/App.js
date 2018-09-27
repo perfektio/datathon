@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import innovationProcurements from './all.json';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './Pages/Dashboard';
+import Procurement from './Pages/Procurement';
+
+import innovationProcurements from './all.json';
 
 import './bulma.min.css';
 import './App.css';
@@ -44,14 +47,38 @@ fixedData.map(pro => pro.tender_country)
 
 
 class App extends Component {
-    render() {
-        return (
-          <Dashboard
-            fixedData={fixedData}
-            uniqCountries={uniqCountries}
-          />
-        );
+  render() {
+
+    const DashboardWithParams = () => {
+      return (
+        <Dashboard
+          fixedData={fixedData}
+          uniqCountries={uniqCountries}
+        />
+      )
     }
+
+    const ProcurementWithParams = (location) => {
+      const id = location.match.params.id;
+      const procurement = fixedHash[id];
+      if (!procurement) return <h1>Not found <small>404</small></h1>
+
+      return (
+        <Procurement procurement={procurement} />
+      )
+    }
+
+    return (
+      <div>
+        <Router>
+          <div>
+            <Route exact path="/" component={DashboardWithParams} />
+            <Route path="/procurement/:id" component={ProcurementWithParams} />
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

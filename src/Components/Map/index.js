@@ -51,8 +51,6 @@ class Map extends Component {
     );
     const accumulatedTotals = Object.entries(totalHash).sort((a, b) => { return b[1] - a[1] })
 
-    console.log(totalHash)
-
     return (
       <div className="i-map">
 

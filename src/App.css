@@ -5,8 +5,8 @@ html {
 
 body {
   box-sizing: border-box;
-  height: 100%;
   margin: 0;
+  min-height: 100%;
   padding: 30px 20px;
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
@@ -28,10 +28,10 @@ body {
 h1, h2, h3, h4, h5 {
   line-height: 1.1; }
 
-.App-title {
+h1 {
   font-size: 36px; }
 
-.App-title small {
+h1 small {
   font-size: 80%;
   opacity: 0.4; }
 
@@ -42,10 +42,16 @@ h1, h2, h3, h4, h5 {
   margin: 0 auto;
   max-width: 2000px; }
 
+.column > .i-bordered {
+  margin-top: -0.75rem; }
+  .column > .i-bordered + .i-bordered {
+    margin-top: 20px; }
+
 .i-bordered {
   background-color: white;
   border: 1px solid #e5e9f2;
-  border-radius: 5px; }
+  border-radius: 5px;
+  padding: 0.75rem; }
   .i-bordered > h2 {
     border-bottom: 1px solid #e5e9f2;
     font-size: 16px;
@@ -77,3 +83,11 @@ h1, h2, h3, h4, h5 {
   .search-field::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #ccc; }
+
+table.procurement-table tr {
+  border-bottom: 1px solid #f3f3f3; }
+  table.procurement-table tr td {
+    padding: 3px 15px 3px 0; }
+    table.procurement-table tr td:first-child {
+      font-size: 90%;
+      opacity: 0.6; }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
+import { Link } from "react-router-dom";
 
 import Chart from '../../components/Chart';
 import Table from '../../components/Table';
@@ -53,14 +54,14 @@ class App extends Component {
       const { searchTender } = this;
       let filtered = fixedData.map(i => i);
 
-      if (country != '') {
+      if (country !== '') {
         filtered = filtered.filter(pro => {
           if (searchTender(pro, 'tender_country', country)) return true;
           return false;
         });
       }
 
-      if (search != '') {
+      if (search !== '') {
         filtered = filtered.filter(pro => {
           if (searchTender(pro, 'tender_title', search)) return true;
           if (searchTender(pro, 'tender_year', search)) return true;
@@ -87,7 +88,6 @@ class App extends Component {
     }
 
     handleCountrySelect(event) {
-      console.log(event)
       this.setState(
         { country: event.value },
         () => { this.filter() }
