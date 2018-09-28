@@ -25,8 +25,7 @@ class Chart extends Component {
     data.forEach(element => {
       const eur = parseInt(element.tender_finalPrice_EUR, 10);
 
-      if (eur < 200000) () => {}
-      else if (eur < 500000) prices['200k-500k'] += 1;
+      if (eur >= 200000 && eur < 500000) prices['200k-500k'] += 1;
       else if (eur < 1000000) prices['500k-1M'] += 1;
       else if (eur < 2000000) prices['1M-2M'] += 1;
       else if (eur < 5000000) prices['3M-5M'] += 1;
