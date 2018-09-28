@@ -114,7 +114,7 @@ class Procurement extends Component {
                               <table className="procurement-table">
                                 <tbody>
                                 { Object.keys(bidder).map((key) => {
-                                  if (key == "bidder_name") return null;
+                                  if (key === "bidder_name") return null;
                                   return (
                                     <tr key={`tr-${key}`}>
                                       <td>{ this.print(key, "") }</td>
