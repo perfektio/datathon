@@ -104,26 +104,32 @@ class App extends Component {
             <div className="i-app">
               <div className="container is-fluid">
                   <div className="columns">
-                      <div className="column is-one-fifth i-bordered ">
-                          <h1 className="App-title">
-                            Innovation procurements
-                            <br />
-                            <small>in EU</small>
-                          </h1>
-                          <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
-                          </p>
-                          <p>This site was built by Perfektio for EU Datathon challenge.</p>
+                      <div className="column is-one-fifth ">
+                          <div className="i-bordered">
+                            <h1 className="App-title">
+                              Innovation procurements
+                              <br />
+                              <small>in EU</small>
+                            </h1>
+                            <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
+                            </p>
+                            <p>This site was built by Perfektio for EU Datathon challenge.</p>
+                          </div>
                       </div>
-                      <div className="column is-two-fifths i-bordered ">
-                        <h2>Procurements by country</h2>
-                        <Map
-                          data={filteredProcurements}
-                          handleCountrySelect={this.handleCountrySelect}
-                        />
+                      <div className="column is-two-fifths ">
+                        <div className="i-bordered">
+                          <h2>Procurements by country</h2>
+                          <Map
+                            data={filteredProcurements}
+                            handleCountrySelect={this.handleCountrySelect}
+                          />
+                        </div>
                       </div>
-                      <div className="column is-two-fifths i-bordered ">
-                        <h2>Grouped by final EUR</h2>
-                        <Chart data={filteredProcurements} />
+                      <div className="column is-two-fifths ">
+                        <div className="i-bordered">
+                          <h2>Grouped by final EUR</h2>
+                          <Chart data={filteredProcurements} />
+                        </div>
                       </div>
                   </div>
 

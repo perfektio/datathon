@@ -6,7 +6,6 @@ import Procurement from './Pages/Procurement';
 
 import innovationProcurements from './all.json';
 
-import './bulma.min.css';
 import './App.css';
 
 
