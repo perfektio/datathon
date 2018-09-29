@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import Chart from '../../components/Chart';
 import Table from '../../components/Table';

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
 
 const specialKeys = [
@@ -71,7 +71,7 @@ class Procurement extends Component {
                   <tbody>
                     { buyerKeys.map((key) => {
                       return (
-                        <tr>
+                        <tr key={key}>
                           <td>{ this.print(key, "buyer_") }</td>
                           <td>{ procurement[key] }</td>
                         </tr>
@@ -87,7 +87,7 @@ class Procurement extends Component {
                   <tbody>
                     { lotKeys.map((key) => {
                       return (
-                        <tr>
+                        <tr key={key}>
                           <td>{ this.print(key, "lot_") }</td>
                           <td>{ procurement[key] }</td>
                         </tr>
@@ -106,20 +106,29 @@ class Procurement extends Component {
                 { procurement.bidders.length === 0
                   ? <p>No bidder data available</p>
                   : (
-                    <table className="procurement-table">
-                      <tbody>
+                      <div>
                         { procurement.bidders.map((bidder) => {
-                          return Object.keys(bidder).map((key) => {
-                            return (
-                              <tr>
-                                <td>{ this.print(key, "") }</td>
-                                <td>{ bidder[key] }</td>
-                              </tr>
-                            )
-                          })
-                        }) }
-                      </tbody>
-                    </table>
+                          return (
+                            <Fragment key={`f-${bidder.bidder_id}`}>
+                              <h3>{ bidder['bidder_name'] }</h3>
+                              <table className="procurement-table">
+                                <tbody>
+                                { Object.keys(bidder).map((key) => {
+                                  if (key === "bidder_name") return null;
+                                  return (
+                                    <tr key={`tr-${key}`}>
+                                      <td>{ this.print(key, "") }</td>
+                                      <td>{ bidder[key] }</td>
+                                    </tr>
+                                  )
+                                }) }
+                              </tbody>
+                            </table>
+                            <hr />
+                          </Fragment>
+                        )
+                      }) }
+                    </div>
                   )
                 }
 
