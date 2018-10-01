@@ -1,0 +1,17 @@
+.i-header {
+    position: relative;
+    height: 60px;
+    background: white;
+    margin-bottom: 2rem;
+    .level {
+        height: 100%;
+        margin-left: 64px;
+        margin-right: 64px;
+    }
+
+    .i-app-name {
+        color: rgb(80, 227, 194);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+} 

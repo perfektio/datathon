@@ -1,0 +1,13 @@
+.i-header {
+  position: relative;
+  height: 60px;
+  background: white;
+  margin-bottom: 2rem; }
+  .i-header .level {
+    height: 100%;
+    margin-left: 64px;
+    margin-right: 64px; }
+  .i-header .i-app-name {
+    color: #50e3c2;
+    font-weight: bold;
+    text-transform: uppercase; }

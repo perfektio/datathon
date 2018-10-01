@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './Pages/Dashboard';
 import Procurement from './Pages/Procurement';
-
+import Header from './components/Header'
 import innovationProcurements from './all.json';
 
-import './bulma.min.css';
 import './App.css';
 
 
@@ -29,7 +28,7 @@ innovationProcurements.forEach((pro) => {
   // Some bidder data is empty so we dont show them as bidders
   const uniq = Object.values(bidder).filter((v, i, a) => a.indexOf(v) === i);
 
-  if ( !(uniq.length === 1 && uniq[0] == null) ) {
+  if (!(uniq.length === 1 && uniq[0] == null)) {
     fixedHash[tenderId]['bidders'].push(bidder)
   }
 })
@@ -38,7 +37,7 @@ const fixedData = Object.keys(fixedHash).map(key => fixedHash[key]);
 
 console.log(fixedData)
 
-const uniqCountries = [ {value: '', label: 'All countries'} ];
+const uniqCountries = [{ value: '', label: 'All countries' }];
 
 fixedData.map(pro => pro.tender_country)
   .filter((v, i, a) => a.indexOf(v) === i)
@@ -71,11 +70,22 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <div>
+          <div className="i-container">
+            <Header />
+
             <Route exact path="/" component={DashboardWithParams} />
             <Route path="/procurement/:id" component={ProcurementWithParams} />
           </div>
         </Router>
+
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <p>
+              <strong>Procuring innovation</strong> by <a href="https://www.perfektio.fi/en">Perfektio</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php"> MIT</a>.
+              </p>
+          </div>
+        </footer>
       </div>
     );
   }

@@ -55,7 +55,7 @@ class Map extends Component {
 
         <div className="i-map--list-country-container">
           {accumulatedTotals.map((item, key) => (
-            <div key={key} className="i-map--list-country">
+            <div key={key} className="i-map--list-country tag">
               <span>{item[0]}</span>
               {item[1]}
             </div>
@@ -63,8 +63,8 @@ class Map extends Component {
         </div>
 
         <ComposableMap>
-            <Geographies geography={geography}>
-              {(geographies, projection) => geographies
+          <Geographies geography={geography}>
+            {(geographies, projection) => geographies
               .filter((geography) => {
                 return geography.properties.NAME !== "Russia"
               })
@@ -75,7 +75,7 @@ class Map extends Component {
                   projection={projection}
                   style={{
                     default: { fill: this.defaultFill(totalHash, geography.id) },
-                    hover:   { fill: this.hoverFill(totalHash, geography.id) },
+                    hover: { fill: this.hoverFill(totalHash, geography.id) },
                     pressed: { fill: this.pressedFill(totalHash, geography.id) },
                   }}
                   onClick={(geo) => {
@@ -85,7 +85,7 @@ class Map extends Component {
                   }}
                 />
               ))}
-            </Geographies>
+          </Geographies>
         </ComposableMap>
 
       </div>
