@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './Pages/Dashboard';
 import Procurement from './Pages/Procurement';
-
+import Header from './components/Header'
 import innovationProcurements from './all.json';
 
 import './App.css';
@@ -28,7 +28,7 @@ innovationProcurements.forEach((pro) => {
   // Some bidder data is empty so we dont show them as bidders
   const uniq = Object.values(bidder).filter((v, i, a) => a.indexOf(v) === i);
 
-  if ( !(uniq.length === 1 && uniq[0] == null) ) {
+  if (!(uniq.length === 1 && uniq[0] == null)) {
     fixedHash[tenderId]['bidders'].push(bidder)
   }
 })
@@ -37,7 +37,7 @@ const fixedData = Object.keys(fixedHash).map(key => fixedHash[key]);
 
 console.log(fixedData)
 
-const uniqCountries = [ {value: '', label: 'All countries'} ];
+const uniqCountries = [{ value: '', label: 'All countries' }];
 
 fixedData.map(pro => pro.tender_country)
   .filter((v, i, a) => a.indexOf(v) === i)
@@ -70,7 +70,9 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <div>
+          <div className="i-container">
+            <Header />
+
             <Route exact path="/" component={DashboardWithParams} />
             <Route path="/procurement/:id" component={ProcurementWithParams} />
           </div>

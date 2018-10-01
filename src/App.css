@@ -6428,7 +6428,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   min-height: 100%;
-  padding: 30px 20px;
+  padding: 0px 0px 30px;
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -6489,7 +6489,8 @@ hr {
   background-color: white;
   border: 1px solid #e5e9f2;
   border-radius: 5px;
-  padding: 0.75rem; }
+  padding: 0.75rem;
+  height: 100%; }
   .i-bordered > h2 {
     border-bottom: 1px solid #e5e9f2;
     font-size: 16px;
@@ -6529,3 +6530,6 @@ table.procurement-table tr {
     table.procurement-table tr td:first-child {
       font-size: 90%;
       opacity: 0.6; }
+
+.i-container {
+  position: relative; }

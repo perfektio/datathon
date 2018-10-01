@@ -17,7 +17,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   min-height: 100%;
-  padding: 30px 20px;
+  padding: 0px 0px 30px;
 
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
@@ -107,6 +107,7 @@ hr {
   border: 1px solid $pleasent-border;
   border-radius: 5px;
   padding: $column-padding;
+  height: 100%;
 
   > h2 {
     border-bottom: 1px solid $pleasent-border;
@@ -161,4 +162,8 @@ table.procurement-table {
       }
     }
   }
+}
+
+.i-container{
+  position: relative;
 }
