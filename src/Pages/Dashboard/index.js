@@ -3,9 +3,9 @@ import Select from 'react-select';
 
 // import { Link } from "react-router-dom";
 
-import Chart from '../../components/Chart';
-import Table from '../../components/Table';
-import Map from '../../components/Map';
+import Chart from '../../KOMPONENTIT/Chart';
+import Table from '../../KOMPONENTIT/Table';
+import Map from '../../KOMPONENTIT/Map';
 
 
 const selectStyles = {

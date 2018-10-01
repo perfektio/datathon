@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './Pages/Dashboard';
 import Procurement from './Pages/Procurement';
-import Header from './components/Header';
+import Header from './KOMPONENTIT/Header';
 import innovationProcurements from './all.json';
 
 import './App.css';
