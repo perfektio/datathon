@@ -7,11 +7,25 @@ const specialKeys = [
 ]
 
 class Procurement extends Component {
+  constructor(props) {
+    super(props);
+
+    this.countAvailability = this.countAvailability.bind(this);
+  }
 
   print(key, pre) {
     return key
       .replace(pre, "")
       .replace("_", " ")
+  }
+
+  countAvailability(total, key) {
+    const { procurement } = this.props;
+
+    if (typeof total === 'string') total = 1;
+    const val = procurement[key];
+    if (!val) return total;
+    return total += 1;
   }
 
   render() {
@@ -22,6 +36,10 @@ class Procurement extends Component {
     const tenderKeys = notSpecialKeys.filter(key => key.includes("tender_"))
     const lotKeys = notSpecialKeys.filter(key => key.includes("lot_"))
     const buyerKeys = notSpecialKeys.filter(key => key.includes("buyer_"))
+
+    const tenderPercent = tenderKeys.reduce(this.countAvailability);
+    const buyerPercent = buyerKeys.reduce(this.countAvailability);
+    const lotPercent = lotKeys.reduce(this.countAvailability);
 
     return (
       <div className="i-app">
@@ -50,13 +68,18 @@ class Procurement extends Component {
 
             <div className="column i-bordered ">
               <h2>Tender</h2>
+
+              <p>{ `${tenderPercent}% of tender data available.` }</p>
+
               <table className="procurement-table">
                 <tbody>
                   { tenderKeys.map((key) => {
+                    const val = procurement[key];
+                    if (!val) return val;
                     return (
                       <tr>
                         <td>{ this.print(key, "tender_") }</td>
-                        <td>{ procurement[key] }</td>
+                        <td>{ val }</td>
                       </tr>
                     )
                   }) }
@@ -67,13 +90,18 @@ class Procurement extends Component {
             <div className="column">
               <div className="i-bordered ">
                 <h2>Buyer</h2>
+
+                <p>{ `${buyerPercent}% of buyer data available.` }</p>
+
                 <table className="procurement-table">
                   <tbody>
                     { buyerKeys.map((key) => {
+                      const val = procurement[key];
+                      if (!val) return val;
                       return (
                         <tr key={key}>
                           <td>{ this.print(key, "buyer_") }</td>
-                          <td>{ procurement[key] }</td>
+                          <td>{ val }</td>
                         </tr>
                       )
                     }) }
@@ -83,13 +111,18 @@ class Procurement extends Component {
 
               <div className="i-bordered ">
                 <h2>Lot</h2>
+
+                <p>{ `${lotPercent}% of lot data available.` }</p>
+
                 <table className="procurement-table">
                   <tbody>
                     { lotKeys.map((key) => {
+                      const val = procurement[key];
+                      if (!val) return val;
                       return (
                         <tr key={key}>
                           <td>{ this.print(key, "lot_") }</td>
-                          <td>{ procurement[key] }</td>
+                          <td>{ val }</td>
                         </tr>
                       )
                     }) }
@@ -107,7 +140,7 @@ class Procurement extends Component {
                   ? <p>No bidder data available</p>
                   : (
                       <div>
-                        { procurement.bidders.map((bidder) => {
+                        { procurement.bidders.map((bidder, index) => {
                           return (
                             <Fragment key={`f-${bidder.bidder_id}`}>
                               <h3>{ bidder['bidder_name'] }</h3>
@@ -124,7 +157,10 @@ class Procurement extends Component {
                                 }) }
                               </tbody>
                             </table>
-                            <hr />
+                            { index === (procurement.bidders.length - 1)
+                              ? null
+                              : (<hr />)
+                            }
                           </Fragment>
                         )
                       }) }
