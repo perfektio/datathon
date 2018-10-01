@@ -5,6 +5,7 @@ import {
   Bar,
   XAxis,
   YAxis,
+  Tooltip,
   ResponsiveContainer,
 } from 'recharts';
 
@@ -154,6 +155,7 @@ class Chart extends Component {
             }}
           />
           <YAxis />
+          <Tooltip cursor={false}/>
         </BarChart>
       </ResponsiveContainer>
     );
