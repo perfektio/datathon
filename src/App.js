@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './Pages/Dashboard';
 import Procurement from './Pages/Procurement';
-import Header from './components/Header'
+import Header from './components/Header';
 import innovationProcurements from './all.json';
 
 import './App.css';
@@ -78,8 +78,8 @@ class App extends Component {
           </div>
         </Router>
 
-        <footer class="footer">
-          <div class="content has-text-centered">
+        <footer className="footer">
+          <div className="content has-text-centered">
             <p>
               <strong>Procuring innovation</strong> by <a href="https://www.perfektio.fi/en">Perfektio</a>. The source code is licensed
                 <a href="http://opensource.org/licenses/mit-license.php"> MIT</a>.
