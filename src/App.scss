@@ -154,6 +154,7 @@ table.procurement-table {
     border-bottom: 1px solid #f3f3f3;
 
     td {
+      min-width: 70px;
       padding: 3px 15px 3px 0;
 
       &:first-child {

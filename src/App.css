@@ -6525,6 +6525,7 @@ hr {
 table.procurement-table tr {
   border-bottom: 1px solid #f3f3f3; }
   table.procurement-table tr td {
+    min-width: 70px;
     padding: 3px 15px 3px 0; }
     table.procurement-table tr td:first-child {
       font-size: 90%;
