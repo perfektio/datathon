@@ -134,7 +134,10 @@ class App extends Component {
                 </h1>
                 <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
                           </p>
-                <p>This site was built by <a href="https://www.perfektio.fi/en" target="_blank">Perfektio</a> for EU Datathon challenge.</p>
+                <p>This site was built by <a
+                  href="https://www.perfektio.fi/en"
+                  target="_blank" // eslint-disable-line
+                >Perfektio</a> for EU Datathon challenge.</p>
               </div>
             </div>
             <div className="column is-two-fifths ">
