@@ -77,7 +77,7 @@ class Procurement extends Component {
                     const val = procurement[key];
                     if (!val) return val;
                     return (
-                      <tr>
+                      <tr key={key}>
                         <td>{ this.print(key, "tender_") }</td>
                         <td>{ val }</td>
                       </tr>
@@ -142,14 +142,14 @@ class Procurement extends Component {
                       <div>
                         { procurement.bidders.map((bidder, index) => {
                           return (
-                            <Fragment key={`f-${bidder.bidder_id}`}>
+                            <Fragment key={`f-${bidder.bidder_id}-${index}`}>
                               <h3>{ bidder['bidder_name'] }</h3>
                               <table className="procurement-table">
                                 <tbody>
-                                { Object.keys(bidder).map((key) => {
+                                { Object.keys(bidder).map((key, i) => {
                                   if (key === "bidder_name") return null;
                                   return (
-                                    <tr key={`tr-${key}`}>
+                                    <tr key={`tr-${key}-${i}`}>
                                       <td>{ this.print(key, "") }</td>
                                       <td>{ bidder[key] }</td>
                                     </tr>
