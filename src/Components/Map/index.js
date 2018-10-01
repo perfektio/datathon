@@ -16,7 +16,6 @@ import geography from './europe.json'
 class Map extends Component {
 
 
-
   handleClick(geography, evt) {
     console.log("Geography data: ", geography)
   }

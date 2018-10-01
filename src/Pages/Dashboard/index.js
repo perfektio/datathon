@@ -5,7 +5,7 @@ import Select from 'react-select';
 
 import Chart from '../../components/Chart';
 import Table from '../../components/Table';
-import Map from '../../components/Map'
+import Map from '../../components/Map';
 
 
 const selectStyles = {
