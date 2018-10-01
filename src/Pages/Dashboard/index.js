@@ -22,6 +22,15 @@ const selectStyles = {
 }
 
 
+
+const groupings = [
+  {value: "final_price", label: "Final price in EUR"},
+  {value: "data_completeness", label: "Data completeness %"},
+  {value: "year", label: "Year"},
+  {value: "buyer_types", label: "Buyer types"},
+];
+
+
 class App extends Component {
     constructor(props) {
       super(props);
@@ -29,12 +38,14 @@ class App extends Component {
       this.state = {
         country: '',
         filteredProcurements: [],
+        grouped_by: 'final_price',
         loaded: false,
         search: '',
       };
 
       this.handleChange = this.handleChange.bind(this);
       this.handleCountrySelect = this.handleCountrySelect.bind(this);
+      this.handleGroupSelect = this.handleGroupSelect.bind(this);
       this.searchTender = this.searchTender.bind(this);
     }
 
@@ -94,8 +105,18 @@ class App extends Component {
       );
     }
 
+    handleGroupSelect(event) {
+      this.setState({ grouped_by: event.value });
+    }
+
     render() {
-        const { filteredProcurements, loaded, search, country } = this.state;
+        const {
+          filteredProcurements,
+          loaded,
+          search,
+          country,
+          grouped_by,
+        } = this.state;
         const { uniqCountries } = this.props;
 
         if (!loaded) return <h1>Loading...</h1>
@@ -112,7 +133,7 @@ class App extends Component {
                           </h1>
                           <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
                           </p>
-                          <p>This site was built by Perfektio for EU Datathon challenge.</p>
+                          <p>This site was built by <a href="https://www.perfektio.fi/en" target="_blank">Perfektio</a> for EU Datathon challenge.</p>
                       </div>
                       <div className="column is-two-fifths i-bordered ">
                         <h2>Procurements by country</h2>
@@ -122,8 +143,23 @@ class App extends Component {
                         />
                       </div>
                       <div className="column is-two-fifths i-bordered ">
-                        <h2>Grouped by final EUR</h2>
-                        <Chart data={filteredProcurements} />
+                        <h2>Grouped procurements</h2>
+
+                        <Select
+                          options={groupings}
+                          onChange={this.handleGroupSelect}
+                          value={groupings.filter((g) => {
+                            return g.value === grouped_by;
+                          })[0]}
+                          styles={selectStyles}
+                        />
+
+                        <br />
+
+                        <Chart
+                          data={filteredProcurements}
+                          selected={grouped_by}
+                        />
                       </div>
                   </div>
 
@@ -142,7 +178,7 @@ class App extends Component {
                         options={uniqCountries}
                         onChange={this.handleCountrySelect}
                         value={uniqCountries.filter((c) => {
-                          return c.label === country;
+                          return c.value === country;
                         })[0]}
                         placeholder="All countries"
                         styles={selectStyles}
