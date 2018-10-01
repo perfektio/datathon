@@ -34,7 +34,7 @@ jobs:
             sudo pip install awscli
       - run:
           name: Sync build to AWS
-          command: aws s3 sync build/ s3://procuring-innovation.com --delete
+          command: aws s3 sync build/ s3://procuring-innovation.com --delete --acl public-read
 
 workflows:
   version: 2
