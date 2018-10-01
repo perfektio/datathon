@@ -17,7 +17,8 @@ class Header extends Component {
           </div>
           <div className="level-right">
             <div className="level-item">
-              <Link to="/"></Link>
+              <Link to="/">Procurement data</Link>
+              <Link to="/">More information about the project</Link>
             </div>
           </div>
         </div>

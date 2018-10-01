@@ -22,6 +22,15 @@ const selectStyles = {
 }
 
 
+
+const groupings = [
+  { value: "final_price", label: "Final price in EUR" },
+  { value: "data_completeness", label: "Data completeness %" },
+  { value: "year", label: "Year" },
+  { value: "buyer_types", label: "Buyer types" },
+];
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,12 +38,14 @@ class App extends Component {
     this.state = {
       country: '',
       filteredProcurements: [],
+      grouped_by: 'final_price',
       loaded: false,
       search: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleCountrySelect = this.handleCountrySelect.bind(this);
+    this.handleGroupSelect = this.handleGroupSelect.bind(this);
     this.searchTender = this.searchTender.bind(this);
   }
 
@@ -94,47 +105,72 @@ class App extends Component {
     );
   }
 
+  handleGroupSelect(event) {
+    this.setState({ grouped_by: event.value });
+  }
+
   render() {
-    const { filteredProcurements, loaded, search, country } = this.state;
+    const {
+      filteredProcurements,
+      loaded,
+      search,
+      country,
+      grouped_by,
+    } = this.state;
     const { uniqCountries } = this.props;
 
     if (!loaded) return <h1>Loading...</h1>
 
     return (
-      <div className="container is-fluid">
-        <div className="columns">
-          <div className="column is-one-fifth ">
-            <div className="i-bordered">
-              <h1 className="App-title">
-                Innovation procurements
-                              <br />
-                <small>in EU</small>
-              </h1>
-              <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
-                            </p>
-              <p>This site was built by Perfektio for EU Datathon challenge.</p>
+      <div className="i-app">
+        <div className="container is-fluid">
+          <div className="columns">
+            <div className="column is-one-fifth ">
+              <div className="i-bordered">
+                <h1 className="App-title">
+                  Innovation procurements
+                            <br />
+                  <small>in EU</small>
+                </h1>
+                <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
+                          </p>
+                <p>This site was built by <a href="https://www.perfektio.fi/en" target="_blank">Perfektio</a> for EU Datathon challenge.</p>
+              </div>
             </div>
-          </div>
-          <div className="column is-two-fifths ">
-            <div className="i-bordered">
-              <h2>Procurements by country</h2>
-              <Map
-                data={filteredProcurements}
-                handleCountrySelect={this.handleCountrySelect}
-              />
+            <div className="column is-two-fifths ">
+              <div className="i-bordered">
+                <h2>Procurements by country</h2>
+                <Map
+                  data={filteredProcurements}
+                  handleCountrySelect={this.handleCountrySelect}
+                />
+              </div>
             </div>
-          </div>
-          <div className="column is-two-fifths ">
-            <div className="i-bordered">
-              <h2>Grouped by final EUR</h2>
-              <Chart data={filteredProcurements} />
-            </div>
-          </div>
-        </div>
+            <div className="column is-two-fifths ">
+              <div className="i-bordered">
+                <h2>Grouped procurements</h2>
 
-        <div className="columns">
-          <div className="column">
-            <div className="i-bordered">
+                <Select
+                  options={groupings}
+                  onChange={this.handleGroupSelect}
+                  value={groupings.filter((g) => {
+                    return g.value === grouped_by;
+                  })[0]}
+                  styles={selectStyles}
+                />
+
+                <br />
+
+                <Chart
+                  data={filteredProcurements}
+                  selected={grouped_by}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="columns">
+            <div className="column">
               <input
                 type="text"
                 className="search-field"
@@ -143,27 +179,25 @@ class App extends Component {
                 placeholder={"Type to search procurements..."}
               />
             </div>
-          </div>
-          <div className="column">
-            <div className="i-bordered">
+            <div className="column">
               <Select
                 options={uniqCountries}
                 onChange={this.handleCountrySelect}
                 value={uniqCountries.filter((c) => {
-                  return c.label === country;
+                  return c.value === country;
                 })[0]}
                 placeholder="All countries"
                 styles={selectStyles}
               />
             </div>
           </div>
-        </div>
 
-        <div className="columns">
-          <div style={{ width: '100%' }} className="column">
-            <Table
-              data={filteredProcurements}
-            />
+          <div className="columns">
+            <div style={{ width: '100%' }}>
+              <Table
+                data={filteredProcurements}
+              />
+            </div>
           </div>
         </div>
       </div>

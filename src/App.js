@@ -77,6 +77,15 @@ class App extends Component {
             <Route path="/procurement/:id" component={ProcurementWithParams} />
           </div>
         </Router>
+
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <p>
+              <strong>Procuring innovation</strong> by <a href="https://www.perfektio.fi/en">Perfektio</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php"> MIT</a>.
+              </p>
+          </div>
+        </footer>
       </div>
     );
   }
