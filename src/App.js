@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './Pages/Dashboard';
 import Procurement from './Pages/Procurement';
+import Resources from './Pages/Resources';
+
 import Header from './KOMPONENTIT/Header';
 import innovationProcurements from './all.json';
 
@@ -75,6 +77,7 @@ class App extends Component {
 
             <Route exact path="/" component={DashboardWithParams} />
             <Route path="/procurement/:id" component={ProcurementWithParams} />
+            <Route path="/resources" component={Resources} />
           </div>
         </Router>
 

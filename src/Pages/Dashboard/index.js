@@ -127,17 +127,17 @@ class App extends Component {
           <div className="columns">
             <div className="column is-one-fifth ">
               <div className="i-bordered">
-                <h1 className="App-title">
+                <h1 className="i-site-title">
                   Innovation procurements
                             <br />
                   <small>in EU</small>
                 </h1>
-                <p>This site uses filtered data from Open Tenders Daily to highlight innovation procurements in Europe from 2009 to 2017.
+                <p>This site uses filtered data from <a href="https://opentender.eu/">Opentender EU</a> to highlight innovation procurements in Europe from 2009 to 2017.
                           </p>
-                <p>This site was built by <a
+                <p className="fixed-to-bottom"> This site was built by <a
                   href="https://www.perfektio.fi/en"
                   target="_blank" // eslint-disable-line
-                >Perfektio</a> for EU Datathon challenge.</p>
+                >Perfektio</a> for <a href="https://publications.europa.eu/en/web/eudatathon">EU Datathon 2018 challenge</a>.</p>
               </div>
             </div>
             <div className="column is-two-fifths ">

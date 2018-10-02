@@ -55,7 +55,7 @@ class Map extends Component {
 
         <div className="i-map--list-country-container">
           {accumulatedTotals.map((item, key) => (
-            <div key={key} className="i-map--list-country tag">
+            <div key={key} className="i-map--list-country tag is-medium">
               <span>{item[0]}</span>
               {item[1]}
             </div>

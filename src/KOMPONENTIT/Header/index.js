@@ -17,8 +17,9 @@ class Header extends Component {
           </div>
           <div className="level-right">
             <div className="level-item">
-              <Link to="/">Procurement data</Link>
-              <Link to="/">More information about the project</Link>
+              <Link to="/">Dashboard</Link>
+              <Link to="/resources">Resources</Link>
+              <a href="https://github.com/perfektio/datathon">Contribute!</a>
             </div>
           </div>
         </div>

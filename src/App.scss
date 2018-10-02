@@ -108,6 +108,7 @@ hr {
   border-radius: 5px;
   padding: $column-padding;
   height: 100%;
+  position: relative;
 
   > h2 {
     border-bottom: 1px solid $pleasent-border;
@@ -166,4 +167,12 @@ table.procurement-table {
 
 .i-container{
   position: relative;
+}
+
+.fixed-to-bottom{
+  position: absolute;
+  bottom: 0;
+}
+.i-site-title {
+  margin-bottom: 1rem;
 }
