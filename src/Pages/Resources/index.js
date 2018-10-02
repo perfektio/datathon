@@ -19,7 +19,7 @@ const sources = [
   },
   {
     type: 'Link',
-    name: 'Innovation Procurement - European Commision ',
+    name: 'Innovation Procurement - European Commision- ',
     link: 'https://ec.europa.eu/digital-single-market/en/innovation-procurement'
   },
 ]
