@@ -106,8 +106,8 @@ hr {
   background-color: white;
   border: 1px solid $pleasent-border;
   border-radius: 5px;
+  min-height: 50%;
   padding: $column-padding;
-  height: 100%;
 
   > h2 {
     border-bottom: 1px solid $pleasent-border;
@@ -167,4 +167,8 @@ table.procurement-table {
 
 .i-container{
   position: relative;
+}
+
+.footer {
+  margin-top: 50px;
 }
