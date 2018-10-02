@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
 
 class Resources extends Component {
@@ -16,7 +15,12 @@ class Resources extends Component {
           </div>
           <div className="columns ">
             <div className="column ">
-              <h3>Innovation procurement resources</h3>
+              <h3>Useful links</h3>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column">
+
             </div>
           </div>
         </div>
