@@ -6496,14 +6496,9 @@ hr {
   background-color: white;
   border: 1px solid #e5e9f2;
   border-radius: 5px;
-<<<<<<< HEAD
-  padding: 0.75rem;
-  height: 100%;
-  position: relative; }
-=======
   min-height: 30%;
-  padding: 0.75rem; }
->>>>>>> a1ccf9c588ed9e4637ba70f37d1d8a515a212444
+  padding: 0.75rem;
+  height: 100%; }
   .i-bordered > h2 {
     border-bottom: 1px solid #e5e9f2;
     font-size: 16px;
@@ -6548,14 +6543,12 @@ table.procurement-table tr {
 .i-container {
   position: relative; }
 
-<<<<<<< HEAD
 .fixed-to-bottom {
   position: absolute;
   bottom: 0; }
 
 .i-site-title {
   margin-bottom: 1rem; }
-=======
+
 .footer {
   margin-top: 50px; }
->>>>>>> a1ccf9c588ed9e4637ba70f37d1d8a515a212444
