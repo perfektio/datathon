@@ -121,6 +121,7 @@ hr {
   min-height: 30%;
   padding: $column-padding;
   height: 100%;
+  position: relative;
 
   > h2 {
     border-bottom: 1px solid $pleasent-border;
