@@ -10,4 +10,5 @@
   .i-header .i-app-name {
     color: #50e3c2;
     font-weight: bold;
+    padding: 5px 0;
     text-transform: uppercase; }
