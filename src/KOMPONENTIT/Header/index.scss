@@ -3,6 +3,7 @@
     height: 60px;
     background: white;
     margin-bottom: 2rem;
+
     .level {
         height: 100%;
         margin-left: 64px;
@@ -13,10 +14,12 @@
     .i-app-name {
         color: rgb(80, 227, 194);
         font-weight: bold;
+        padding: 5px 0;
         text-transform: uppercase;
     }
 
-    a{
+    a {
         margin-left: 1rem;
     }
-} 
+
+}
