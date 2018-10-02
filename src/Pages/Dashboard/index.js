@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-// import { Link } from "react-router-dom";
-
 import Chart from '../../KOMPONENTIT/Chart';
 import Table from '../../KOMPONENTIT/Table';
 import Map from '../../KOMPONENTIT/Map';

@@ -8,9 +8,23 @@
     margin-left: 64px;
     margin-right: 64px; }
   .i-header .i-app-name {
-    color: #50e3c2;
+    color: #0a6b55;
     font-weight: bold;
     padding: 5px 0;
     text-transform: uppercase; }
   .i-header a {
     margin-left: 1rem; }
+
+.columns.spacer-big {
+  margin-top: 5rem; }
+
+.spacer-small {
+  margin-top: 3rem; }
+
+.company-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start; }
+  .company-container .company-item {
+    width: calc(25% - 20px);
+    margin: 10px; }
