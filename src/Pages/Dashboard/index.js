@@ -132,7 +132,7 @@ class App extends Component {
                 </h1>
                 <p>This site uses filtered data from <a href="https://opentender.eu/">Opentender EU</a> to highlight innovation procurements in Europe from 2009 to 2017.
                           </p>
-                <p className="fixed-to-bottom"> This site was built by <a
+                <p className=""> This site was built by <a
                   href="https://www.perfektio.fi/en"
                   target="_blank" // eslint-disable-line
                 >Perfektio</a> for <a href="https://publications.europa.eu/en/web/eudatathon">EU Datathon 2018 challenge</a>.</p>
