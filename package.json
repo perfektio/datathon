@@ -37,7 +37,7 @@
     "set-value": ">=2.0.1",
     "tar": ">=2.2.2",
     "js-yaml": ">=3.13.1",
-    "handlebars": ">=4.3.0",
+    "handlebars": ">=4.5.3",
     "axios": ">=0.18.1"
   },
   "scripts": {
