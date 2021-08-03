@@ -35,7 +35,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "set-value": ">=2.0.1",
-    "tar": ">=2.2.2",
+    "tar": ">=4.4.15",
     "js-yaml": ">=3.13.1",
     "handlebars": ">=4.3.0",
     "axios": ">=0.18.1"
